@@ -9,10 +9,11 @@ type FirebaseQuestions = Record<string, {
   }
   content: string;
   isHighlighted: boolean;
-  isAnswered: string;
+  isAnswered: boolean;
   likes: Record<string, {
     authorId: string;
   }>
+  createdAt: number;
 }>;
 
 type QuestionType = {
@@ -23,9 +24,10 @@ type QuestionType = {
   }
   content: string;
   isHighlighted: boolean;
-  isAnswered: string;
+  isAnswered: boolean;
   likeCount: number;
   likeId: string | undefined;
+  createdAt: number;
 }
 
 export function useRoom(roomId: string) {
@@ -49,9 +51,11 @@ export function useRoom(roomId: string) {
             isHighlighted: value.isHighlighted,
             isAnswered: value.isAnswered,
             likeCount: Object.values(value.likes ?? {}).length,
-            likeId: Object.entries(value.likes ?? {}).find(([key, like]) => like.authorId === user?.id)?.[0]
+            likeId: Object.entries(value.likes ?? {}).find(
+              ([key, like]) => like.authorId === user?.id)?.[0],
+            createdAt: value.createdAt
           }
-        });
+        }).sort((a, b) => a.likeCount !== b.likeCount ? b.likeCount - a.likeCount : b.createdAt - a.createdAt );
 
         setQuestions(parsedQuestions);
       }
