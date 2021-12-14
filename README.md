@@ -95,8 +95,8 @@ $ yarn
 # or npm install
 
 # Run the application
-$ yarn dev
-# or npm run dev
+$ yarn start
+# or npm run start
 ```
 Access the application at http://localhost:3000
 
