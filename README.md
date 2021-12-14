@@ -26,7 +26,7 @@ Questions appear in real time as they are submitted and are sorted by the amount
 # :computer: Technologies
 
 - [ReactJS](https://pt-br.reactjs.org/)
-- [Typescript](https://www.typescriptlang.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Firebase](https://firebase.google.com/)
 
 # :page_with_curl: Requirements
